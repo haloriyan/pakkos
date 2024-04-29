@@ -2,7 +2,7 @@ import { IconUser, IconX } from "@tabler/icons-react"
 import Navbar from "../components/Navbar"
 import { 
     IconBolt, IconPackage, IconHeart, IconMapPin, IconShare2,
-    IconGridDots, IconChevronLeft, IconDroplet,
+    IconGridDots, IconChevronLeft, IconDroplet, IconBookmark, IconCheck
 } from "@tabler/icons-react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import goTop from "../components/goTop"
@@ -21,6 +21,8 @@ import "react-image-gallery/styles/css/image-gallery.css"
 import Popup from "../components/Popup"
 import useLoggingIn from "../Hooks/useLoggingIn";
 import ReactGA from "react-ga4";
+import bookmarkIcon from "../assets/bookmark.svg";
+import checkIcon from "../assets/check.svg";
 
 export default function Title(){
     const { slug } = useParams();
@@ -205,27 +207,27 @@ function Header({kos, galleryImages, galleryStates, user}){
                 <div className="images-container w-full h-[420px] flex rounded-md overflow-hidden mobile:w-full mobile:h-[100vw] mobile:overflow-x-auto mobile:rounded-none">
                     <div className="images w-full h-full grid grid-rows-2 grid-cols-4 gap-2 mobile:w-fit mobile:flex mobile:gap-0">
                         <div className="row-span-2 col-span-2 mobile:w-[100vw] mobile:h-[100vw]" style={{
-                            backgroundImage: `url(${config.baseUrl}/storage/listing_photos/${kos.front_building_photo})`,
+                            backgroundImage: `url('${config.baseUrl}/storage/listing_photos/${kos.front_building_photo}')`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center center'
                         }}></div>
                         <div className="mobile:w-[100vw] mobile:h-[100vw]" style={{
-                            backgroundImage: `url(${config.baseUrl}/storage/listing_photos/${kos.inside_building_photo})`,
+                            backgroundImage: `url('${config.baseUrl}/storage/listing_photos/${kos.inside_building_photo}')`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center center'
                         }}></div>
                         <div className="mobile:w-[100vw] mobile:h-[100vw]" style={{
-                            backgroundImage: `url(${config.baseUrl}/storage/listing_photos/${kos.front_room_photo})`,
+                            backgroundImage: `url('${config.baseUrl}/storage/listing_photos/${kos.front_room_photo}')`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center center'
                         }}></div>
                         <div className="mobile:w-[100vw] mobile:h-[100vw]" style={{
-                            backgroundImage: `url(${config.baseUrl}/storage/listing_photos/${kos.inside_room_photo})`,
+                            backgroundImage: `url('${config.baseUrl}/storage/listing_photos/${kos.inside_room_photo}')`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center center'
                         }}></div>
                         <div className="mobile:w-[100vw] mobile:h-[100vw]" style={{
-                            backgroundImage: `url(${config.baseUrl}/storage/listing_photos/${kos.streetview_building_photo})`,
+                            backgroundImage: `url('${config.baseUrl}/storage/listing_photos/${kos.streetview_building_photo}')`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center center'
                         }}></div>
@@ -237,28 +239,28 @@ function Header({kos, galleryImages, galleryStates, user}){
                 <Swiper spaceBetween={0} slidesPerView={1} onSlideChange={() => console.log('slide change')} onSwiper={(swiper) => console.log(swiper)} >
                     <SwiperSlide>
                         <div className="mobile:w-[100vw] mobile:h-[70vw]" style={{
-                            backgroundImage: `url(${config.baseUrl}/storage/listing_photos/${kos.front_room_photo})`,
+                            backgroundImage: `url('${config.baseUrl}/storage/listing_photos/${kos.front_room_photo}')`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center center'
                         }}></div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="mobile:w-[100vw] mobile:h-[70vw]" style={{
-                            backgroundImage: `url(${config.baseUrl}/storage/listing_photos/${kos.inside_room_photo})`,
+                            backgroundImage: `url('${config.baseUrl}/storage/listing_photos/${kos.inside_room_photo}')`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center center'
                         }}></div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="mobile:w-[100vw] mobile:h-[70vw]" style={{
-                            backgroundImage: `url(${config.baseUrl}/storage/listing_photos/${kos.front_building_photo})`,
+                            backgroundImage: `url('${config.baseUrl}/storage/listing_photos/${kos.front_building_photo}')`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center center'
                         }}></div>
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="mobile:w-[100vw] mobile:h-[70vw]" style={{
-                            backgroundImage: `url(${config.baseUrl}/storage/listing_photos/${kos.streetview_building_photo})`,
+                            backgroundImage: `url('${config.baseUrl}/storage/listing_photos/${kos.streetview_building_photo}')`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center center'
                         }}></div>
@@ -382,11 +384,19 @@ function YangKamuDapatkan(){
     const data = [
         {
             title: "Harga Transparan",
-            text: "Kami bukan makelar, harga yang tercantum di halaman ini merupakan harga asli yang  ditawarkan oleh pemilik."
+            text: "Biaya yang tercantum di halaman ini merupakan harga asli yang ditawarkan oleh pemilik tanpa ada penambahan biaya dari Pakkos.",
+            // icon: <IconBookmark stroke={1.5} width={32} height={32} />,
+            icon: <img src={bookmarkIcon} alt="bookmark" style={{
+                width: 32,height: 32,
+            }} />
         },
         {
-            title: "Keaslian Terjamin",
-            text: "Kos ini sudah kami kunjungi langsung sehingga kami bisa memastikan keaslian lokasi kos, kondisi kamar dan juga fasilitas yang disediakan oleh pemilik."
+            title: "Sudah Terverifikasi",
+            text: "Tempat ini sudah kami kunjungi langsung sehingga bisa dipastikan keaslian lokasi kos, kondisi kamar dan juga fasilitas yang disediakan oleh pemilik.",
+            // icon: <IconCheck stroke={1.5} width={32} height={32} />
+            icon: <img src={checkIcon} alt="check" style={{
+                width: 32,height: 32,
+            }} />
         }
     ]
 
@@ -397,11 +407,11 @@ function YangKamuDapatkan(){
             {
                 data.map((item, index) => {
                     return (
-                        <div className="item flex gap-4" key={index}>
-                            <div className="img flex">
-                                <IconPackage stroke={1.5} width={32} height={32} />
+                        <div className="item flex gap-6" key={index}>
+                            <div className="img flex mobile:w-3/12">
+                                {item.icon}
                             </div>
-                            <div className="flex flex-col gap-4">
+                            <div className="flex flex-col gap-2">
                                 <div className="font-semibold">{item.title}</div>
                                 <div className="text-sm text-[#717171]">{item.text}</div>
                             </div>

@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.svg"
 import account_menu from "../assets/account_menu.png"
 import account_image from "../assets/account_image.png"
 import { useState, useEffect, useRef } from "react"
