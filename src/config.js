@@ -3,7 +3,7 @@ const config = {
     baseUrl: 'https://api.pakkos.com',
     google_client_id: "448841353104-2jnn7p65maru7frsgmrttae2s8tb9lea.apps.googleusercontent.com",
     google_analytics_tracking_code: "UA-107986295-1",
-    whatsapp_admin: "6285706611112",
+    whatsapp_admin: "628159830008",
 
     activity_key: `Aktivitas Pengguna`,
     question_key: `Pertanyaan Pengguna`
